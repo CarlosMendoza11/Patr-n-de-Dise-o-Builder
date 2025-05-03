@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Procesador de Pagos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="light-theme">
+    <h1>💳 PayNet</h1>
+
+    <!-- Sección de Pago -->
+    <label>Tipo de pago:</label>
+    <select id="paymentType">
+      <option value="CREDIT">Crédito</option>
+      <option value="DEBIT">Débito</option>
+      <option value="PAYPAL">PayPal</option>
+    </select>
+
+    <label>Monto:</label>
+    <input type="number" id="amount" placeholder="Ingresa el monto" />
+
+    <label>Canal de notificación:</label>
+    <select id="channel">
+      <option value="EMAIL">Correo</option>
+      <option value="SMS">SMS</option>
+      <option value="PUSH">Notificación Push</option>
+      <option value="WHATSAPP">WhatsApp</option>
+    </select>
+
+    <label>Tema visual:</label>
+    <select id="themeSelector" onchange="cambiarTema()">
+      <option value="light">Claro</option>
+      <option value="dark">Oscuro</option>
+    </select>
+
+    <button onclick="procesarPago()">Procesar Pago</button>
+
+    <!-- Sección de Reporte PDF -->
+    <h2>🧾 Generar Reporte PDF</h2>
+
+    <label>Título del reporte:</label>
+    <input type="text" id="reportTitle" placeholder="Título del reporte" />
+
+    <label>Incluir logo:</label>
+    <input type="checkbox" id="includeLogo" />
+
+    <label>Incluir detalles de pago:</label>
+    <input type="checkbox" id="includeDetails" checked />
+
+    <label>Incluir info de usuario:</label>
+    <input type="checkbox" id="includeUserInfo" checked />
+
+    <label>Incluir fecha y hora:</label>
+    <input type="checkbox" id="includeTimestamp" checked />
+
+    <label>Mensaje en el pie:</label>
+    <input type="text" id="footerMessage" placeholder="Gracias por su pago" />
+
+    <label>Tema del reporte:</label>
+    <select id="reportTheme">
+      <option value="LIGHT">Claro</option>
+      <option value="DARK">Oscuro</option>
+    </select>
+
+    <label>Formato del reporte:</label>
+    <select id="reportFormat">
+      <option value="A4">A4</option>
+      <option value="LETTER">Carta</option>
+   </select>
+
+    <button onclick="generarReporte()">Generar Reporte PDF</button>
+
+    <div id="resultado"></div>
+    <div id="descarga"></div>
+  </div>
+
+  <script src="themeFactory.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
