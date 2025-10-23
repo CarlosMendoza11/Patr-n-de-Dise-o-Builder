@@ -16,7 +16,7 @@ function procesarPago() {
   fetch(url, { method: "POST" })
     .then(response => {
       if (!response.ok) throw new Error("Error en la respuesta del servidor");
-      return response.json();
+      return response.text();
     })
     .then(data => {
       document.getElementById("resultado").innerText = `✅ Pago procesado correctamente. Total: $${data}`;
